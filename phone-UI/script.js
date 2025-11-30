@@ -667,15 +667,10 @@ function createStars() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Update "No GUI mode" link based on device
+    // Update "No GUI mode" link (already set in HTML, but keeping for compatibility)
     const noGuiLink = document.getElementById('no-gui-link');
-    if (noGuiLink) {
-        const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
-        if (isMobile) {
-            noGuiLink.href = 'phone-clone/phone-terminal/index.html';
-        } else {
-            noGuiLink.href = 'clone/index.html';
-        }
+    if (noGuiLink && !noGuiLink.href.includes('phone-terminal')) {
+        noGuiLink.href = 'phone-terminal/phone-terminal.html';
     }
     
     createStars();
