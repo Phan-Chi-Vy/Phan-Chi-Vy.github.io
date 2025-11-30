@@ -5,8 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Hoshimiya~</title>
+    <script>
+        // Immediate device detection and redirect (runs before page loads)
+        (function() {
+            // Check if already on mobile page
+            const path = window.location.pathname || '';
+            const href = window.location.href || '';
+            
+            if (path.includes('phone-clone') || path.includes('clone/') || path.includes('phone-terminal') || 
+                href.includes('phone-clone') || href.includes('/clone/') || href.includes('phone-terminal')) {
+                return; // Don't redirect if already on subdirectory pages
+            }
+            
+            // Check if on root index
+            const isRoot = path === '/' || path === '/index.html' || path.endsWith('/index.html') || 
+                          (path.split('/').filter(p => p).length <= 1);
+            
+            if (!isRoot) return; // Not on root, don't redirect
+            
+            // Mobile device detection
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+            const isSmallScreen = window.innerWidth <= 768;
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const forceDesktop = localStorage.getItem('forceDesktop') === 'true';
+            
+            if (forceDesktop) return;
+            
+            // Redirect if mobile
+            if (isMobileUA || (isSmallScreen && hasTouch)) {
+                window.location.replace('phone-clone/index.html');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/utils.js"></script>
 </head>
 
 <body>
@@ -196,7 +230,6 @@
         </footer>
     </div>
 
-    <script src="js/utils.js"></script>
     <script src="js/script.js"></script>
 </body>
 

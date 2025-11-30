@@ -47,9 +47,9 @@ function redirectToMobile() {
         return;
     }
     
-    // Redirect to mobile version
+    // Redirect to mobile version (use replace to avoid back button issues)
     const mobilePath = 'phone-clone/index.html';
-    window.location.href = mobilePath;
+    window.location.replace(mobilePath);
 }
 
 function redirectToDesktop() {
@@ -65,7 +65,7 @@ function redirectToDesktop() {
         
         // Check if we're already in a subdirectory
         const isInPhoneClone = path.includes('phone-clone') || href.includes('phone-clone');
-        const isInClone = path.includes('clone/') || href.includes('clone/');
+        const isInClone = path.includes('clone/') || href.includes('/clone/');
         const isInPhoneTerminal = path.includes('phone-terminal') || href.includes('phone-terminal');
         
         // If already in a subdirectory, don't redirect
@@ -74,19 +74,23 @@ function redirectToDesktop() {
         }
         
         // Check if we're on the root index.html
-        const isRootIndex = path === '/index.html' || 
-                           path === '/' || 
-                           path.endsWith('/index.html') ||
-                           href.endsWith('index.html') ||
-                           href.endsWith('/');
+        // Accept: /, /index.html, or path ending with index.html (but not in subdirectory)
+        const pathParts = path.split('/').filter(p => p);
+        const isRootIndex = path === '/' || 
+                           path === '/index.html' ||
+                           (pathParts.length === 0) ||
+                           (pathParts.length === 1 && pathParts[0] === 'index.html') ||
+                           (pathParts.length === 0 && href.endsWith('/'));
         
         // Only redirect if on root index and mobile device
-        if (isRootIndex && isMobileDevice()) {
-            redirectToMobile();
+        if (isRootIndex) {
+            if (isMobileDevice()) {
+                redirectToMobile();
+            }
         }
     }
     
-    // Run immediately (don't wait for DOM)
+    // Run immediately before page loads
     initRedirect();
 })();
 
