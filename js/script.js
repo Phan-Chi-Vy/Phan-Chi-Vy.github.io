@@ -667,6 +667,17 @@ function createStars() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Update "No GUI mode" link based on device
+    const noGuiLink = document.getElementById('no-gui-link');
+    if (noGuiLink) {
+        const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+        if (isMobile) {
+            noGuiLink.href = 'phone-clone/phone-terminal/index.html';
+        } else {
+            noGuiLink.href = 'clone/index.html';
+        }
+    }
+    
     createStars();
     initCustomCursor();
     typeWriter();
