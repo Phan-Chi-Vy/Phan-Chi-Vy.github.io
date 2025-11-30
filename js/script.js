@@ -666,15 +666,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+            // Only prevent default for hash links (internal navigation)
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
             }
+            // For external links (like clone/index.html), let them work normally
         });
     });
 
@@ -998,7 +1002,7 @@ document.addEventListener('DOMContentLoaded', function () {
             
             isTyping = false;
             terminalInput.disabled = false;
-            terminalInput.focus();
+            terminalInput.focus({ preventScroll: true });
         }
 
         function sleep(ms) {
@@ -1104,6 +1108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         terminalInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
+                e.preventDefault();
                 const value = terminalInput.value;
                 terminalInput.value = '';
                 if (value.trim() || state === 'waiting') {
@@ -1113,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         document.querySelector('.terminal-container')?.addEventListener('click', () => {
-            if (!isTyping) terminalInput.focus();
+            if (!isTyping) terminalInput.focus({ preventScroll: true });
         });
     })();
 
