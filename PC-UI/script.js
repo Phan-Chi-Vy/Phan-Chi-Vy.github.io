@@ -252,7 +252,7 @@ async function fetchDiscordActivity(isFirstLoad = false) {
                 user.name ||
                 (user.user && user.user.global_name) ||
                 (user.user && user.user.username) ||
-                'bokuwa_buta.san';
+                'hoshimiya_yozora';
 
             try {
                 let games = [];
@@ -480,7 +480,7 @@ async function fetchDiscordActivity(isFirstLoad = false) {
         } else {
             activityElement.innerHTML = `
                 <div style="text-align: center; padding: 15px;">
-                    <p style="font-size: 13px;">User 'bokuwa_buta.san' not found 🤔</p>
+                    <p style="font-size: 13px;">User 'hoshimiya_yozora' not found 🤔</p>
                     <p style="font-size: 11px; opacity: 0.6; margin-top: 5px;">Check console for available users</p>
                 </div>
             `;
@@ -1107,7 +1107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const testCase = urlParams.get('activityTest');
         if (testCase && window.renderActivityForUser) {
             const sample = {
-                username: 'bokuwa_buta.san',
+                username: 'hoshimiya_yozora',
                 avatarURL: 'https://cdn.discordapp.com/embed/avatars/0.png',
                 status: 'online',
                 activities: []
