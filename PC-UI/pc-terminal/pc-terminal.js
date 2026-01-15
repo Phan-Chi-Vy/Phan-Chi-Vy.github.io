@@ -503,7 +503,11 @@ async function showActivity() {
                     } else if (isCustomStatus) {
                         customStatus = { state: state || details || a.emoji?.name || '' };
                     } else if (name && name.toLowerCase() !== 'custom status') {
-                        games.push({ name, details, state });
+                        // Check if this game is already in the array to prevent duplicates
+                        const isDuplicate = games.some(g => g.name.toLowerCase() === name.toLowerCase());
+                        if (!isDuplicate) {
+                            games.push({ name, details, state });
+                        }
                     }
                 });
             }

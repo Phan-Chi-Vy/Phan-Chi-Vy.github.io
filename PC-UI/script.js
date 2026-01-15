@@ -292,14 +292,23 @@ async function fetchDiscordActivity(isFirstLoad = false) {
                         } else if (isCustomStatus) {
                             customStatus = { state: state || details || a.emoji?.name || '' };
                         } else if (name && name.toLowerCase() !== 'custom status') {
-                            games.push({ name, details, state, assets: a.assets || {} });
+                            // Check if this game is already in the array to prevent duplicates
+                            const isDuplicate = games.some(g => g.name.toLowerCase() === name.toLowerCase());
+                            if (!isDuplicate) {
+                                games.push({ name, details, state, assets: a.assets || {} });
+                            }
                         }
                     });
                 }
 
+                // Only add fallback activity if no games were found in activities array
                 if (!games.length && user.activity && user.activity.name) {
                     const a = user.activity;
-                    games.push({ name: a.name, details: a.details || '', state: a.state || '' });
+                    const activityName = a.name.toLowerCase();
+                    // Don't add if it's a custom status or already exists
+                    if (activityName !== 'custom status' && !games.some(g => g.name.toLowerCase() === activityName)) {
+                        games.push({ name: a.name, details: a.details || '', state: a.state || '' });
+                    }
                 }
 
                 function buildHeader(avatar, displayName) {
