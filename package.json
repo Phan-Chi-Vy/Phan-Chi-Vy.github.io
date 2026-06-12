@@ -1,0 +1,13 @@
+{
+  "name": "yozora-profile-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Yozora's personal identity and portfolio site.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

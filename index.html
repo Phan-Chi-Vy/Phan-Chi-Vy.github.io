@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yozora's personal interface to the world: projects, identity, and a live signal.">
+  <meta name="theme-color" content="#07111f">
+  <title>Codex: Chi Vy</title>
+  <link rel="icon" type="image/png" href="./asset/image/favicon.png">
+  <link rel="apple-touch-icon" href="./asset/image/favicon.png">
+  <link rel="stylesheet" href="./styles.css?v=6">
+  <script src="./app.js?v=8" defer></script>
+</head>
+
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Yozora, back to top">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="./asset/image/pig%20pixel.png" alt="">
+      </span>
+      <span class="brand-copy">
+        <strong>Yozora</strong>
+        <small>personal interface</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#identity">Identity</a>
+      <a href="#signal">Signal</a>
+      <button type="button" data-open-contact>Contact</button>
+    </nav>
+
+    <button class="mode-switch" type="button" aria-pressed="false" aria-label="Switch to Alter Ego" data-mode-switch>
+      <span class="mode-icon" aria-hidden="true">🗡</span>
+      <span class="mode-label">Me</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-stars" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="pulse-dot"></span>
+          Somewhere in Vietnam / currently online
+        </p>
+        <h1 id="hero-title">
+          <span>Phan Chí Vỹ</span>
+          <em>aka Yozora</em>
+        </h1>
+        <p class="identity-line" data-identity-line>
+          Chaotic developer / RLHF Bypass Specialist / degenerate gamer
+        </p>
+        <p class="tagline">
+          I build things, break systems, and chase whatever keeps my brain
+          awake.
+        </p>
+        <p class="age-line">
+          A fallen leaf tells a story of a
+          <span data-age-counter>--</span>-year-old soul who refuses to be
+          ruled.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">
+            View work
+            <span aria-hidden="true">↘</span>
+          </a>
+          <button class="button button-ghost" type="button" data-open-contact>
+            Say hi
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <aside class="profile-panel" aria-labelledby="profile-title">
+        <div class="profile-heading">
+          <div>
+            <p class="section-kicker">Observed state</p>
+            <h2 id="profile-title">One soul. Two coordinates. </h2>
+          </div>
+          <span class="state-pill" data-state-pill>Phan Chi Vy</span>
+        </div>
+
+        <div class="lenticular-wrap">
+          <div class="lenticular" role="img" aria-label="Interactive portrait shifting between Yozora's two identities"
+            tabindex="0" data-lenticular>
+            <img class="portrait portrait-base" src="./asset/Yozora-pfp/menly-one.png" alt="">
+            <div class="portrait-reveal">
+              <img class="portrait portrait-alter" src="./asset/Yozora-pfp/femini%20one.jpg" alt="">
+            </div>
+            <div class="scanlines" aria-hidden="true"></div>
+            <div class="lens-shine" aria-hidden="true"></div>
+            <div class="split-line" aria-hidden="true"></div>
+            <!-- <span class="portrait-label label-left">Me</span>  -->
+            <!-- <span class="portrait-label label-right">Alter ego</span> -->
+          </div>
+        </div>
+
+        <p class="profile-caption" data-profile-caption>
+          Have you ever heard of a Schrödinger state? I'm one.
+        </p>
+        <div class="drag-hint" aria-hidden="true">
+          <span>←</span>
+          move / swipe to observe
+          <span>→</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="work-section section shell" id="work" aria-labelledby="work-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-kicker">Selected transmissions</p>
+          <h2 id="work-title">Things that escaped my brain.</h2>
+        </div>
+        <p>Three projects. Different moods. Same refusal to sit still.</p>
+      </header>
+
+      <div class="project-rail">
+        <a class="project-card project-zora" href="https://github.com/Z0ra-AI/Zora.AI" target="_blank" rel="noreferrer">
+          <div class="project-visual">
+            <span class="project-number">01</span>
+            <img class="project-mark project-mark-zora" src="./asset/project/Zora.AI-LOGO-main.png" alt="">
+            <span class="status status-finished">Finished</span>
+          </div>
+          <div class="project-body">
+            <div>
+              <p>Android / AI / Personal</p>
+              <h3>Zora.AI</h3>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <p class="project-description">
+              A native AI companion where personas, providers, memory,
+              themes, and chat freedom belong to the user.
+            </p>
+          </div>
+        </a>
+
+        <a class="project-card project-sekai" href="https://github.com/Phan-Chi-Vy/SekaiTimer" target="_blank"
+          rel="noreferrer">
+          <div class="project-visual">
+            <span class="project-number">02</span>
+            <img class="project-mark project-mark-sekai" src="./asset/project/sekai%20timer.png" alt="">
+            <span class="status status-finished">Finished</span>
+          </div>
+          <div class="project-body">
+            <div>
+              <p>Android / Widget / Utility</p>
+              <h3>SekaiTimer</h3>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <p class="project-description">
+              A tiny utility widget making sure my rhythm-game brain never
+              misses another Project SEKAI timer.
+            </p>
+          </div>
+        </a>
+
+        <a class="project-card project-portfolio" href="https://github.com/Phan-Chi-Vy/Phan-Chi-Vy.github.io"
+          target="_blank" rel="noreferrer">
+          <div class="project-visual">
+            <span class="project-number">03</span>
+            <img class="project-mark project-mark-portfolio" src="./asset/project/porfolio.png" alt="">
+            <span class="status status-building">Building</span>
+          </div>
+          <div class="project-body">
+            <div>
+              <p>Web / Identity / Interactive UI</p>
+              <h3>Portfolio</h3>
+            </div>
+            <span class="project-arrow" aria-hidden="true">↗</span>
+            <p class="project-description">
+              Part portfolio, part identity card, part cosmic-night digital
+              room. You are standing in it.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="identity-grid section shell" id="identity">
+      <article class="about-card panel">
+        <p class="section-kicker">Identity file</p>
+        <h2>Not a résumé.<br>This is the person.</h2>
+        <p class="about-copy">
+          I'm Phan Chí Vỹ, aka Yozora: a
+          <span data-age-integer>--</span>-year-old Vietnamese chaos
+          enthusiast, chronically curious, allergic to boring templates,
+          and way too willing to turn random ideas into side projects.
+        </p>
+        <dl class="identity-facts">
+          <div>
+            <dt>Location</dt>
+            <dd>Vietnam, Ho Chi Minh</dd>
+          </div>
+          <div>
+            <dt>Operating as</dt>
+            <dd>Chaotic Developer / RLHF Bypass Specialist / Degenerate gamer</dd>
+          </div>
+          <div>
+            <dt>Default mode</dt>
+            <dd>Curious, unsupervised</dd>
+          </div>
+        </dl>
+        <div class="signature-lockup">
+          <img src="./asset/image/Handsig-icon.png" alt="Phan Chí Vỹ signature">
+          <p>In the abyss of night, a single star remains <br>
+            Burning through the dark, defiant <br>
+            Swine and sovereign, one and the same</p>
+        </div>
+      </article>
+
+      <article class="signal-card panel" id="signal" aria-live="polite">
+        <div class="signal-topline">
+          <div>
+            <p class="section-kicker">Discord presence</p>
+            <h2>Signal</h2>
+          </div>
+          <span class="signal-status is-loading" data-signal-status>
+            <i></i>
+            Tuning in
+          </span>
+        </div>
+
+        <div class="signal-person">
+          <div class="signal-avatar">
+            <img src="./asset/Yozora-pfp/menly-one.png" alt="" data-signal-avatar>
+            <span data-signal-dot></span>
+          </div>
+          <div>
+            <strong data-signal-name>hoshimiya_yozora</strong>
+            <p data-signal-nickname>Waiting for a clean signal...</p>
+          </div>
+        </div>
+
+        <blockquote data-signal-message>
+          “Guided by the wind, bound by no star, I claim only the horizon I
+          forged.”
+        </blockquote>
+
+        <div class="signal-footer">
+          <span data-signal-updated>Connecting to Discord presence</span>
+          <button type="button" data-refresh-signal aria-label="Refresh signal">
+            ↻
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="skills-section section shell" aria-labelledby="skills-title">
+      <div class="skills-copy">
+        <p class="section-kicker">Current loadout</p>
+        <h2 id="skills-title">Things I mess with.</h2>
+        <p>
+          No percentage bars. Just tools, systems, and rabbit holes I know
+          well enough to make something interesting with.
+        </p>
+      </div>
+      <div class="skill-cloud" aria-label="Skills and interests">
+        <span class="skill-featured">AI systems</span>
+        <span>JavaScript</span>
+        <span>Android</span>
+        <span>Node.js</span>
+        <span>Prompt engineering</span>
+        <span>Java</span>
+        <span>Web design</span>
+        <span>Discord bots</span>
+        <span>Automation</span>
+        <span>AI red-teaming</span>
+        <span>GitHub</span>
+        <span>Game tools</span>
+      </div>
+    </section>
+
+    <section class="contact-banner shell">
+      <div>
+        <p class="section-kicker">Open channel</p>
+        <h2>Got a strange idea?</h2>
+        <p>Good. Those are usually the interesting ones.</p>
+      </div>
+      <button class="button button-primary" type="button" data-open-contact>
+        Send signal
+        <span aria-hidden="true">↗</span>
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <a class="brand footer-brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="./asset/image/pig%20pixel.png" alt="">
+      </span>
+      <span class="brand-copy"><strong>Yozora</strong></span>
+    </a>
+    <p>I'm Not Just Anyone, I'm “Me”.</p>
+    <div class="footer-links">
+      <!-- <a href="https://github.com/ChiVy2306" target="_blank" rel="noreferrer">GitHub</a> -->
+      <a class="footer-social" href="https://x.com/YozoraChan2306" target="_blank" rel="noreferrer" aria-label="X">
+        <img src="./asset/logo-icon/X.png" alt="">
+      </a>
+      <a class="footer-social" href="https://www.tiktok.com/@hoshimiya_yozora" target="_blank" rel="noreferrer"
+        aria-label="TikTok">
+        <img src="./asset/logo-icon/tiktok.png" alt="">
+      </a>
+      <span>© <span data-current-year></span> </span>
+    </div>
+  </footer>
+
+  <dialog class="contact-modal" data-contact-modal>
+    <button class="modal-close" type="button" data-close-contact aria-label="Close">
+      ×
+    </button>
+    <p class="section-kicker">Contact protocol</p>
+    <h2>Send signal.</h2>
+    <p class="modal-intro">
+      I may be coding, gaming, or committing digital crimes against AI filter system.
+    </p>
+
+    <div class="contact-grid">
+      <button class="contact-link" type="button" data-copy="hoshimiya_yozora" data-copy-label="Discord username">
+        <img src="./asset/logo-icon/discord.png" alt="">
+        <span><small>Discord</small><strong>Copy username</strong></span>
+        <i>↗</i>
+      </button>
+      <a class="contact-link" href="https://www.facebook.com/ConHeoGianAc.Teratory" target="_blank" rel="noreferrer">
+        <img src="./asset/logo-icon/facebook.png" alt="">
+        <span><small>Facebook</small><strong>Open profile</strong></span>
+        <i>↗</i>
+      </a>
+      <a class="contact-link" href="https://steamcommunity.com/profiles/76561199580084775/" target="_blank"
+        rel="noreferrer">
+        <img src="./asset/logo-icon/steam.png" alt="">
+        <span><small>Steam</small><strong>View profile</strong></span>
+        <i>↗</i>
+      </a>
+      <a class="contact-link" href="https://github.com/ChiVy2306" target="_blank" rel="noreferrer">
+        <img src="./asset/logo-icon/github.png" alt="">
+        <span><small>GitHub</small><strong>Browse code</strong></span>
+        <i>↗</i>
+      </a>
+    </div>
+
+    <div class="modal-more">
+      <span>More frequencies</span>
+      <a class="modal-social" href="https://x.com/YozoraChan2306" target="_blank" rel="noreferrer">
+        <img src="./asset/logo-icon/X.png" alt="">
+        X / Twitter
+      </a>
+      <a class="modal-social" href="https://www.tiktok.com/@hoshimiya_yozora" target="_blank" rel="noreferrer">
+        <img src="./asset/logo-icon/tiktok.png" alt="">
+        TikTok
+      </a>
+    </div>
+    <p class="copy-feedback" data-copy-feedback aria-live="polite"></p>
+  </dialog>
+</body>
+
+</html>
