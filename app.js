@@ -1,9 +1,12 @@
 const BIRTH_DATE = new Date("2006-06-23T00:00:00+07:00");
 const SIGNAL_FALLBACK_URL = "https://data-fetcher-p8pv.onrender.com/api/users";
 const YOZORA_USER_ID = "428375195573551114";
+const SIGNAL_REFRESH_INTERVAL_MS = 3000;
 const revealAnimations = new WeakMap();
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointerQuery = window.matchMedia("(pointer: fine)");
+let signalRefreshHandle = null;
+let signalFetchInFlight = false;
 
 const identityModes = {
   me: {
@@ -312,7 +315,11 @@ function relativeTime(dateValue) {
   return "Updated just now";
 }
 
-async function fetchSignal() {
+async function fetchSignal(options = {}) {
+  const { showLoading = true } = options;
+  if (signalFetchInFlight) return;
+
+  signalFetchInFlight = true;
   const status = $("[data-signal-status]");
   const statusDot = $("[data-signal-dot]");
   const avatar = $("[data-signal-avatar]");
@@ -321,8 +328,10 @@ async function fetchSignal() {
   const message = $("[data-signal-message]");
   const updated = $("[data-signal-updated]");
 
-  status.className = "signal-status is-loading";
-  status.innerHTML = "<i></i>Tuning in";
+  if (showLoading) {
+    status.className = "signal-status is-loading";
+    status.innerHTML = "<i></i>Tuning in";
+  }
 
   try {
     let response = null;
@@ -379,7 +388,7 @@ async function fetchSignal() {
     nickname.textContent = data.nickname || "Yozora";
     message.textContent =
       data.customStatus ||
-      "Signal is clear. No custom transmission attached.";
+      "Ran out of tokens, respawning quota soon (i'm sleeping baka).";
     updated.textContent = relativeTime(data.lastUpdated);
 
     if (data.avatarURL) {
@@ -393,7 +402,38 @@ async function fetchSignal() {
     message.textContent =
       "Probably gaming, coding, or committing crimes against CSS.";
     updated.textContent = "Discord presence unavailable";
+  } finally {
+    signalFetchInFlight = false;
   }
+}
+
+function mountSignalAutoRefresh() {
+  const stopSignalPolling = () => {
+    if (!signalRefreshHandle) return;
+
+    window.clearInterval(signalRefreshHandle);
+    signalRefreshHandle = null;
+  };
+
+  const startSignalPolling = () => {
+    if (signalRefreshHandle || document.visibilityState !== "visible") return;
+
+    signalRefreshHandle = window.setInterval(() => {
+      fetchSignal({ showLoading: false });
+    }, SIGNAL_REFRESH_INTERVAL_MS);
+  };
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      stopSignalPolling();
+      return;
+    }
+
+    fetchSignal({ showLoading: false });
+    startSignalPolling();
+  });
+
+  startSignalPolling();
 }
 
 function mountContactModal() {
@@ -760,4 +800,5 @@ mountLenticular();
 mountContactModal();
 mountPageMeta();
 mountMotionSystem();
+mountSignalAutoRefresh();
 fetchSignal();
