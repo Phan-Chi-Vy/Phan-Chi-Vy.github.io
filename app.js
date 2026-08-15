@@ -782,6 +782,113 @@ function mountActiveNavigation() {
   });
 }
 
+function mountProjectFilters() {
+  const filterButtons = $$(".filter-btn");
+  const projectCards = $$(".project-card");
+  if (!filterButtons.length || !projectCards.length) return;
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((btn) => btn.classList.toggle("is-active", btn === button));
+
+      projectCards.forEach((card, index) => {
+        const category = card.dataset.category || "";
+        const matches = filter === "all" || category.includes(filter);
+
+        if (matches) {
+          card.classList.remove("is-hidden");
+          if (motionAllowed()) {
+            playMotion(
+              card,
+              [
+                { opacity: 0, transform: "scale(0.96) translateY(14px)" },
+                { opacity: 1, transform: "scale(1) translateY(0)" }
+              ],
+              { duration: 420, delay: index * 35 }
+            );
+          }
+        } else {
+          card.classList.add("is-hidden");
+        }
+      });
+    });
+  });
+}
+
+async function fetchLiveGitHubStats() {
+  const repos = [
+    "Z0ra-AI/Zora.AI",
+    "ChiVy2306/ProjectBeta",
+    "ChiVy2306/RamNuker",
+    "ChiVy2306/AI-evaluation-report-2026"
+  ];
+
+  const CACHE_KEY = "yozora_github_stats_v1";
+  let cached = null;
+  try {
+    const raw = sessionStorage.getItem(CACHE_KEY);
+    if (raw) cached = JSON.parse(raw);
+  } catch {}
+
+  const applyStats = (data) => {
+    if (!data) return;
+    Object.entries(data).forEach(([repo, stats]) => {
+      if (stats.stars !== undefined) {
+        $$(`[data-live-stars="${repo}"]`).forEach((el) => {
+          el.textContent = stats.stars;
+        });
+      }
+      if (stats.downloads !== undefined && stats.downloads > 0) {
+        $$(`[data-live-dl="${repo}"]`).forEach((el) => {
+          el.textContent = `${stats.downloads}+`;
+        });
+      }
+    });
+  };
+
+  if (cached) {
+    applyStats(cached);
+    return;
+  }
+
+  const results = {};
+
+  await Promise.allSettled(
+    repos.map(async (repo) => {
+      try {
+        const [repoRes, relRes] = await Promise.all([
+          fetch(`https://api.github.com/repos/${repo}`).then((r) => (r.ok ? r.json() : null)),
+          fetch(`https://api.github.com/repos/${repo}/releases`).then((r) => (r.ok ? r.json() : null))
+        ]);
+
+        let stars = repoRes?.stargazers_count;
+        let downloads = 0;
+
+        if (Array.isArray(relRes)) {
+          relRes.forEach((rel) => {
+            if (Array.isArray(rel.assets)) {
+              rel.assets.forEach((asset) => {
+                downloads += asset.download_count || 0;
+              });
+            }
+          });
+        }
+
+        results[repo] = {
+          stars: stars !== undefined ? stars : undefined,
+          downloads: downloads > 0 ? downloads : undefined
+        };
+      } catch {}
+    })
+  );
+
+  applyStats(results);
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(results));
+  } catch {}
+}
+
 function mountMotionSystem() {
   document.documentElement.dataset.motion = motionAllowed() ? "full" : "reduced";
   mountHeroEntrance();
@@ -799,6 +906,8 @@ mountIdentityMode();
 mountLenticular();
 mountContactModal();
 mountPageMeta();
+mountProjectFilters();
 mountMotionSystem();
 mountSignalAutoRefresh();
 fetchSignal();
+fetchLiveGitHubStats();
