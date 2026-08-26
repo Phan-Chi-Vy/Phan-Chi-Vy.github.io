@@ -185,6 +185,14 @@ function mountLayoutDetection() {
   mobileQuery.addEventListener("change", applyLayout);
 }
 
+function triggerHaptic(duration = 8) {
+  if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
+    try {
+      navigator.vibrate(duration);
+    } catch {}
+  }
+}
+
 function mountIdentityMode() {
   const switchButton = $("[data-mode-switch]");
   const lenticular = $("[data-lenticular]");
@@ -216,6 +224,7 @@ function mountIdentityMode() {
     statePill.textContent = mode.state;
 
     if (animate) {
+      triggerHaptic(10);
       animateLenticularReveal(lenticular, mode.reveal);
       animateIdentityFeedback(switchButton, modeIcon, modeLabel, statePill);
     } else {
@@ -233,6 +242,9 @@ function mountIdentityMode() {
     applyMode(currentMode === "me" ? "alter" : "me");
   });
 
+  window.__setIdentityMode = applyMode;
+  window.__getIdentityMode = () => currentMode;
+
   applyMode(currentMode, false);
 }
 
@@ -241,6 +253,7 @@ function mountLenticular() {
   if (!card) return;
 
   let isDragging = false;
+  let lastSide = null;
 
   const updateFromPointer = (clientX, clientY = null) => {
     stopLenticularAnimation(card);
@@ -251,13 +264,31 @@ function mountLenticular() {
         ? 0.5
         : Math.min(Math.max((clientY - bounds.top) / bounds.height, 0), 1);
 
-    setLenticularReveal(card, x * 100);
+    const revealVal = x * 100;
+    setLenticularReveal(card, revealVal);
     card.style.setProperty("--tilt-x", `${(x - 0.5) * 8}deg`);
     card.style.setProperty("--tilt-y", `${(0.5 - y) * 6}deg`);
+
+    // Crossing midpoint haptic click
+    const currentSide = revealVal > 50 ? "alter" : "me";
+    if (lastSide && lastSide !== currentSide && isDragging) {
+      triggerHaptic(6);
+    }
+    lastSide = currentSide;
+
+    // Dynamically glow pink when revealing female side, cyan when male
+    if (revealVal > 50) {
+      card.style.setProperty("--dynamic-accent", "#ff9bd8");
+      card.style.setProperty("--dynamic-glow", "rgba(255, 155, 216, 0.8)");
+    } else {
+      card.style.setProperty("--dynamic-accent", "#8ce3ff");
+      card.style.setProperty("--dynamic-glow", "rgba(140, 227, 255, 0.8)");
+    }
   };
 
   card.addEventListener("pointerdown", (event) => {
     isDragging = true;
+    lastSide = Number(card.dataset.reveal ?? 0) > 50 ? "alter" : "me";
     card.setPointerCapture(event.pointerId);
     updateFromPointer(event.clientX, event.clientY);
   });
@@ -272,23 +303,89 @@ function mountLenticular() {
     isDragging = false;
     card.style.setProperty("--tilt-x", "0deg");
     card.style.setProperty("--tilt-y", "0deg");
+
+    const currentReveal = Number(card.dataset.reveal ?? 0);
+    const activeMode = window.__getIdentityMode ? window.__getIdentityMode() : "me";
+
+    // Auto-slide to whichever side holds the majority percentage (> 50%)
+    const targetMode = currentReveal > 50 ? "alter" : "me";
+    const targetReveal = targetMode === "alter" ? 100 : 0;
+
+    if (window.__setIdentityMode && targetMode !== activeMode) {
+      window.__setIdentityMode(targetMode, true);
+    } else {
+      animateLenticularReveal(card, targetReveal, 520);
+    }
   };
 
   card.addEventListener("pointerup", release);
   card.addEventListener("pointercancel", release);
-  card.addEventListener("pointerleave", () => {
-    if (!isDragging) release();
-  });
+  card.addEventListener("pointerleave", release);
+  window.addEventListener("blur", release);
 
   card.addEventListener("keydown", (event) => {
     if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
     event.preventDefault();
     stopLenticularAnimation(card);
     const current = Number(card.dataset.reveal ?? 50);
-    const next = event.key === "ArrowRight" ? current + 5 : current - 5;
+    const next = event.key === "ArrowRight" ? current + 10 : current - 10;
     const reveal = Math.min(Math.max(next, 0), 100);
     setLenticularReveal(card, reveal);
   });
+
+  card.addEventListener("keyup", (event) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    const currentReveal = Number(card.dataset.reveal ?? 0);
+    const targetMode = currentReveal > 50 ? "alter" : "me";
+    if (window.__setIdentityMode) {
+      window.__setIdentityMode(targetMode, true);
+    }
+  });
+}
+
+function formatDiscordActivity(activities, customStatusFallback) {
+  if (!Array.isArray(activities) || activities.length === 0) {
+    return customStatusFallback
+      ? `“${customStatusFallback}”`
+      : "“Guided by the wind, bound by no star, I claim only the horizon I forged.”";
+  }
+
+  // 1. Spotify / Music (type 2)
+  const spotify = activities.find(
+    (a) => a.type === 2 || a.name?.toLowerCase() === "spotify"
+  );
+  if (spotify) {
+    const song = spotify.details || spotify.state;
+    const artist = spotify.details && spotify.state ? ` · ${spotify.state}` : "";
+    return `🎧 Listening to “${song}${artist}”`;
+  }
+
+  // 2. Gaming / Playing (type 0)
+  const game = activities.find(
+    (a) => a.type === 0 && a.name !== "Custom Status"
+  );
+  if (game) {
+    const details = game.details ? ` (${game.details})` : "";
+    return `🎮 Playing ${game.name}${details}`;
+  }
+
+  // 3. Streaming / Watching (type 1 or 3)
+  const streamOrWatch = activities.find((a) => a.type === 1 || a.type === 3);
+  if (streamOrWatch) {
+    const verb = streamOrWatch.type === 1 ? "Streaming" : "Watching";
+    const details = streamOrWatch.details ? `: ${streamOrWatch.details}` : "";
+    return `📺 ${verb} ${streamOrWatch.name}${details}`;
+  }
+
+  // 4. Custom Status (type 4)
+  const custom = activities.find(
+    (a) => a.type === 4 || a.name === "Custom Status"
+  );
+  if (custom?.state || customStatusFallback) {
+    return `“${custom?.state || customStatusFallback}”`;
+  }
+
+  return "“Guided by the wind, bound by no star, I claim only the horizon I forged.”";
 }
 
 function relativeTime(dateValue) {
@@ -327,10 +424,12 @@ async function fetchSignal(options = {}) {
   const nickname = $("[data-signal-nickname]");
   const message = $("[data-signal-message]");
   const updated = $("[data-signal-updated]");
+  const refreshBtn = $("[data-refresh-signal]");
 
   if (showLoading) {
     status.className = "signal-status is-loading";
     status.innerHTML = "<i></i>Tuning in";
+    if (refreshBtn) refreshBtn.classList.add("is-refreshing");
   }
 
   try {
@@ -373,6 +472,7 @@ async function fetchSignal(options = {}) {
         nickname: yozora.nickname,
         status: yozora.status,
         customStatus: customStatus?.state || null,
+        activities: yozora.activities || [],
         lastUpdated: yozora.lastUpdated
       };
     }
@@ -384,11 +484,14 @@ async function fetchSignal(options = {}) {
     status.className = `signal-status is-${presence}`;
     status.innerHTML = `<i></i>${presence === "dnd" ? "Do not disturb" : presence}`;
     statusDot.className = `is-${presence}`;
-    name.textContent = data.username || "hoshimiya_yozora";
-    nickname.textContent = data.nickname || "Yozora";
-    message.textContent =
-      data.customStatus ||
-      "Ran out of tokens, respawning quota soon (i'm sleeping baka).";
+    name.textContent = data.username || "kei_akashi.";
+
+    // Show nickname and custom status if available
+    const displayNick = data.nickname || "Yozora";
+    nickname.textContent = displayNick;
+
+    // Display rich activity (Spotify, Gaming, Streaming, Custom Status, or motto)
+    message.textContent = formatDiscordActivity(data.activities, data.customStatus);
     updated.textContent = relativeTime(data.lastUpdated);
 
     if (data.avatarURL) {
@@ -404,6 +507,7 @@ async function fetchSignal(options = {}) {
     updated.textContent = "Discord presence unavailable";
   } finally {
     signalFetchInFlight = false;
+    if (refreshBtn) refreshBtn.classList.remove("is-refreshing");
   }
 }
 
@@ -488,11 +592,19 @@ function mountContactModal() {
     if (outside) close();
   });
 
+  let copyTimeout = null;
   $$("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(button.dataset.copy);
-        feedback.textContent = `${button.dataset.copyLabel} copied: ${button.dataset.copy}`;
+        button.classList.add("is-copied");
+        feedback.textContent = `✓ ${button.dataset.copyLabel} copied: ${button.dataset.copy}`;
+        if (typeof navigator.vibrate === "function") navigator.vibrate(10);
+        if (copyTimeout) clearTimeout(copyTimeout);
+        copyTimeout = setTimeout(() => {
+          button.classList.remove("is-copied");
+          feedback.textContent = "";
+        }, 3200);
       } catch {
         feedback.textContent = `Discord: ${button.dataset.copy}`;
       }

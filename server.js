@@ -59,10 +59,11 @@ async function handleSignal(response) {
 
     return sendJson(response, 200, {
       avatarURL: yozora.avatarURL || null,
-      username: yozora.username || "hoshimiya_yozora",
+      username: yozora.username || "kei_akashi.",
       nickname: yozora.nickname || null,
       status: yozora.status || "offline",
       customStatus: customStatus?.state || null,
+      activities: yozora.activities || [],
       lastUpdated: yozora.lastUpdated || null
     });
   } catch (error) {

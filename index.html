@@ -4,23 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
   <meta name="description" content="Yozora's personal interface to the world: projects, identity, and a live signal.">
   <meta name="theme-color" content="#07111f">
   <title>Codex: Chi Vy</title>
+
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hoshimiya.dev/">
+  <meta property="og:title" content="Codex: Chi Vy (Yozora)">
+  <meta property="og:description" content="Yozora's personal interface to the world: projects, identity, and a live signal.">
+  <meta property="og:image" content="https://hoshimiya.dev/asset/image/banner.png">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://hoshimiya.dev/">
+  <meta name="twitter:title" content="Codex: Chi Vy (Yozora)">
+  <meta name="twitter:description" content="Yozora's personal interface to the world: projects, identity, and a live signal.">
+  <meta name="twitter:image" content="https://hoshimiya.dev/asset/image/banner.png">
+  <meta name="twitter:creator" content="@YozoraChan2306">
+
   <link rel="icon" type="image/png" href="./asset/image/favicon.png">
   <link rel="apple-touch-icon" href="./asset/image/favicon.png">
-  <link rel="stylesheet" href="./styles.css?v=6">
-  <script src="./app.js?v=8" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+  <link rel="stylesheet" href="./styles.css?v=7">
+  <script src="./app.js?v=9" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#work">Skip to main content</a>
   <div class="page-noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Yozora, back to top">
       <span class="brand-mark" aria-hidden="true">
-        <img src="./asset/image/pig%20pixel.png" alt="">
+        <img src="./asset/image/pig%20pixel.png" alt="" width="44" height="44">
       </span>
       <span class="brand-copy">
         <strong>Yozora</strong>
@@ -95,15 +116,13 @@
         <div class="lenticular-wrap">
           <div class="lenticular" role="img" aria-label="Interactive portrait shifting between Yozora's two identities"
             tabindex="0" data-lenticular>
-            <img class="portrait portrait-base" src="./asset/Yozora-pfp/menly-one.png" alt="">
+            <img class="portrait portrait-base" src="./asset/Yozora-pfp/menly-one.png" alt="" width="380" height="410">
             <div class="portrait-reveal">
-              <img class="portrait portrait-alter" src="./asset/Yozora-pfp/femini%20one.jpg" alt="">
+              <img class="portrait portrait-alter" src="./asset/Yozora-pfp/femini%20one.jpg" alt="" width="380" height="410">
             </div>
             <div class="scanlines" aria-hidden="true"></div>
             <div class="lens-shine" aria-hidden="true"></div>
             <div class="split-line" aria-hidden="true"></div>
-            <!-- <span class="portrait-label label-left">Me</span>  -->
-            <!-- <span class="portrait-label label-right">Alter ego</span> -->
           </div>
         </div>
 
@@ -132,7 +151,7 @@
         <a class="project-card project-zora" href="https://github.com/Z0ra-AI/Zora.AI" target="_blank" rel="noreferrer">
           <div class="project-visual">
             <span class="project-number">01</span>
-            <img class="project-mark project-mark-zora" src="./asset/project/Zora.AI-LOGO-main.png" alt="Zora.AI logo">
+            <img class="project-mark project-mark-zora" src="./asset/project/Zora.AI-LOGO-main.png" alt="Zora.AI logo" width="172" height="172" loading="lazy">
             <span class="status status-finished">Finished</span>
           </div>
           <div class="project-body">
@@ -156,7 +175,7 @@
         <a class="project-card project-beta" href="https://github.com/ChiVy2306/ProjectBeta" target="_blank" rel="noreferrer">
           <div class="project-visual">
             <span class="project-number">02</span>
-            <img class="project-mark project-mark-beta" src="./asset/project/project-beta.png" alt="ProjectBeta logo">
+            <img class="project-mark project-mark-beta" src="./asset/project/project-beta.png" alt="ProjectBeta logo" width="208" height="208" loading="lazy">
             <span class="status status-finished">Finished</span>
           </div>
           <div class="project-body">
@@ -180,7 +199,7 @@
         <a class="project-card project-ram" href="https://github.com/ChiVy2306/RamNuker" target="_blank" rel="noreferrer">
           <div class="project-visual">
             <span class="project-number">03</span>
-            <img class="project-mark project-mark-ram" src="./asset/project/ram-nuker.png" alt="RamNuker logo">
+            <img class="project-mark project-mark-ram" src="./asset/project/ram-nuker.png" alt="RamNuker logo" width="208" height="208" loading="lazy">
             <span class="status status-finished">Active</span>
           </div>
           <div class="project-body">
@@ -228,7 +247,7 @@
           </div>
         </dl>
         <div class="signature-lockup">
-          <img src="./asset/image/Handsig-icon.png" alt="Phan Chí Vỹ signature">
+          <img src="./asset/image/Handsig-icon.png" alt="Phan Chí Vỹ signature" width="148" height="56" loading="lazy">
           <p>In the abyss of night, a single star remains <br>
             Burning through the dark, defiant <br>
             Swine and sovereign, one and the same</p>
@@ -249,12 +268,12 @@
 
         <div class="signal-person">
           <div class="signal-avatar">
-            <img src="./asset/Yozora-pfp/menly-one.png" alt="" data-signal-avatar>
+            <img src="./asset/Yozora-pfp/menly-one.png" alt="" aria-hidden="true" width="64" height="64" data-signal-avatar>
             <span data-signal-dot></span>
           </div>
           <div>
-            <strong data-signal-name>hoshimiya_yozora</strong>
-            <p data-signal-nickname>Waiting for a clean signal...</p>
+            <strong data-signal-name>kei_akashi.</strong>
+            <p data-signal-nickname>Waiting for a clean signal…</p>
           </div>
         </div>
 
@@ -311,29 +330,28 @@
   </main>
 
   <footer class="footer shell">
-    <a class="brand footer-brand" href="#top">
+    <a class="brand footer-brand" href="#top" aria-label="Yozora, back to top">
       <span class="brand-mark" aria-hidden="true">
-        <img src="./asset/image/pig%20pixel.png" alt="">
+        <img src="./asset/image/pig%20pixel.png" alt="" width="38" height="38" loading="lazy">
       </span>
       <span class="brand-copy"><strong>Yozora</strong></span>
     </a>
     <p>I'm Not Just Anyone, I'm “Me”.</p>
     <div class="footer-links">
-      <!-- <a href="https://github.com/ChiVy2306" target="_blank" rel="noreferrer">GitHub</a> -->
       <a class="footer-social" href="https://x.com/YozoraChan2306" target="_blank" rel="noreferrer" aria-label="X">
-        <img src="./asset/logo-icon/X.png" alt="">
+        <img src="./asset/logo-icon/X.png" alt="" aria-hidden="true" width="15" height="15" loading="lazy">
       </a>
       <a class="footer-social" href="https://www.tiktok.com/@hoshimiya_yozora" target="_blank" rel="noreferrer"
         aria-label="TikTok">
-        <img src="./asset/logo-icon/tiktok.png" alt="">
+        <img src="./asset/logo-icon/tiktok.png" alt="" aria-hidden="true" width="15" height="15" loading="lazy">
       </a>
       <span>© <span data-current-year></span> </span>
     </div>
   </footer>
 
   <dialog class="contact-modal" data-contact-modal>
-    <button class="modal-close" type="button" data-close-contact aria-label="Close">
-      ×
+    <button class="modal-close" type="button" data-close-contact aria-label="Close contact dialog">
+      <span aria-hidden="true">×</span>
     </button>
     <p class="section-kicker">Contact protocol</p>
     <h2>Send signal.</h2>
@@ -342,24 +360,24 @@
     </p>
 
     <div class="contact-grid">
-      <button class="contact-link" type="button" data-copy="hoshimiya_yozora" data-copy-label="Discord username">
-        <img src="./asset/logo-icon/discord.png" alt="">
+      <button class="contact-link" type="button" data-copy="kei_akashi." data-copy-label="Discord username">
+        <img src="./asset/logo-icon/discord.png" alt="" aria-hidden="true" width="46" height="46" loading="lazy">
         <span><small>Discord</small><strong>Copy username</strong></span>
         <i>↗</i>
       </button>
       <a class="contact-link" href="https://www.facebook.com/ConHeoGianAc.Teratory" target="_blank" rel="noreferrer">
-        <img src="./asset/logo-icon/facebook.png" alt="">
+        <img src="./asset/logo-icon/facebook.png" alt="" aria-hidden="true" width="46" height="46" loading="lazy">
         <span><small>Facebook</small><strong>Open profile</strong></span>
         <i>↗</i>
       </a>
       <a class="contact-link" href="https://steamcommunity.com/profiles/76561199580084775/" target="_blank"
         rel="noreferrer">
-        <img src="./asset/logo-icon/steam.png" alt="">
+        <img src="./asset/logo-icon/steam.png" alt="" aria-hidden="true" width="46" height="46" loading="lazy">
         <span><small>Steam</small><strong>View profile</strong></span>
         <i>↗</i>
       </a>
       <a class="contact-link" href="https://github.com/ChiVy2306" target="_blank" rel="noreferrer">
-        <img src="./asset/logo-icon/github.png" alt="">
+        <img src="./asset/logo-icon/github.png" alt="" aria-hidden="true" width="46" height="46" loading="lazy">
         <span><small>GitHub</small><strong>Browse code</strong></span>
         <i>↗</i>
       </a>
@@ -368,11 +386,11 @@
     <div class="modal-more">
       <span>More frequencies</span>
       <a class="modal-social" href="https://x.com/YozoraChan2306" target="_blank" rel="noreferrer">
-        <img src="./asset/logo-icon/X.png" alt="">
+        <img src="./asset/logo-icon/X.png" alt="" aria-hidden="true" width="13" height="13" loading="lazy">
         X / Twitter
       </a>
       <a class="modal-social" href="https://www.tiktok.com/@hoshimiya_yozora" target="_blank" rel="noreferrer">
-        <img src="./asset/logo-icon/tiktok.png" alt="">
+        <img src="./asset/logo-icon/tiktok.png" alt="" aria-hidden="true" width="13" height="13" loading="lazy">
         TikTok
       </a>
     </div>
