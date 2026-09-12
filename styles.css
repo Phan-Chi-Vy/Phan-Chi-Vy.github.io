@@ -964,7 +964,8 @@ img {
     url("./asset/project/bg2.png") center / cover;
 }
 
-.project-ram .project-visual {
+.project-ram .project-visual,
+.project-fukidashi .project-visual {
   background:
     linear-gradient(rgba(3, 9, 18, 0.1), rgba(3, 9, 18, 0.42)),
     url("./asset/project/bg(project).png") center / cover;
@@ -1053,7 +1054,8 @@ img {
 }
 
 .project-mark-beta,
-.project-mark-ram {
+.project-mark-ram,
+.project-mark-fukidashi {
   width: 208px;
   height: 208px;
   max-width: 95%;
@@ -1062,6 +1064,7 @@ img {
 
 .project-mark-beta,
 .project-mark-ram,
+.project-mark-fukidashi,
 .project-mark-zora {
   background: transparent;
   padding: 0;
@@ -1082,7 +1085,8 @@ img {
   filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 34px rgba(244, 114, 182, 0.6));
 }
 
-.project-ram:hover .project-mark {
+.project-ram:hover .project-mark,
+.project-fukidashi:hover .project-mark {
   filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 34px rgba(56, 189, 248, 0.6));
 }
 

@@ -932,7 +932,7 @@ async function fetchLiveGitHubStats() {
   const repos = [
     "Z0ra-AI/Zora.AI",
     "ChiVy2306/ProjectBeta",
-    "ChiVy2306/RamNuker",
+    "Kyokkei/fukidashi-mcp",
     "ChiVy2306/AI-evaluation-report-2026"
   ];
 
