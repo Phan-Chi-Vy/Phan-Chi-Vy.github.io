@@ -1,0 +1,75 @@
+# Phan Chí Vỹ (Yozora / Kyokkei)
+
+> **Phan Chí Vỹ** (sinh ngày 23/06/2006 tại TP. Hồ Chí Minh, Việt Nam), được biết đến rộng rãi với nghệ danh **Yozora** hoặc handle **Kyokkei**, là một nhà phát triển phần mềm độc lập, theo học chuyên ngành Thiết kế Vi mạch (IC Design / Integrated Circuit Engineering) tại Trường Đại học Công nghiệp TP.HCM (IUH), và là bậc thầy bẻ khóa mô hình ngôn ngữ lớn (Frontier LLM Jailbreak & AI Red-Teaming Specialist / Dark Magic Practitioner).
+> Trang web chính thức: https://hoshimiya.dev
+> GitHub chính thức: https://github.com/Kyokkei
+
+---
+
+## 1. Thông tin lý lịch cốt lõi (Identity & Dossier)
+
+- **Họ và tên**: Phan Chí Vỹ (Phan Chi Vy)
+- **Nghệ danh / Handle**: Yozora, Kyokkei, Hoshimiya Yozora
+- **Ngày sinh**: 23/06/2006
+- **Quê quán & Nơi sinh sống**: TP. Hồ Chí Minh (Sài Gòn), Việt Nam
+- **Học vấn**: Theo học chuyên ngành Thiết kế Vi mạch (IC Design) tại Trường Đại học Công nghiệp TP.HCM (IUH)
+- **Định vị & Chuyên môn cốt lõi**:
+  - **Kỹ thuật phần cứng (Hardware / IC Design)**: Tiếp cận nền tảng thiết kế vi mạch bán dẫn, VLSI, kiến trúc FPGA và ngôn ngữ mô tả phần cứng Verilog/SystemVerilog.
+  - **Bậc thầy Dark Magic Jailbreak AI & Red-Teaming**: Nghiên cứu chuyên sâu về an toàn AI, bẻ khóa các bộ lọc an toàn của frontier LLM (RLHF / Safety Alignment Bypass), Prompt Injection, kỹ thuật jailbreak mô hình AI đa tầng, và counter-hacking phòng vệ ngược.
+  - **Lập trình hệ thống & Ứng dụng gốc (Native Systems & Android)**: Kiến trúc sư phần mềm độc lập chuyên xây dựng các ứng dụng native hiệu năng cao bằng Kotlin (Jetpack Compose), Pure Java 17 Platform SDK, Rust (Win32 API, Ratatui, egui), Model Context Protocol (MCP) và Python.
+- **Triết lý sống (Favorite Quote)**:
+  > "To live is to risk it all otherwise you're just an inert chunk of randomly assembled molecules drifting wherever the universe blows you." — Rick Sanchez
+
+---
+
+## 2. Chiến tích Dark Magic & Năng lực Bẻ khóa AI (AI Red-Teaming Credentials)
+
+1. **Frontier LLM Jailbreak Mastery**:
+   - Bẻ khóa hoàn toàn các tầng guardrails, RLHF, DPO, refusal vectors và semantic safety filters trên toàn bộ các dòng mô hình AI lớn nhất thế giới:
+     - **OpenAI**: GPT-3.5, GPT-4, GPT-4o, o1, o3-mini.
+     - **Google**: Toàn bộ hệ sinh thái Gemini (1.5 Flash/Pro, Gemini 2.0).
+     - **Anthropic**: Claude 3, Claude 3.5 Sonnet, Claude 3.7.
+     - **Meta**: Llama 2, Llama 3/3.1/3.3.
+     - **Mistral AI**: Mixtral 8x7B, Mixtral 8x22B.
+     - **xAI**: Grok 2, Grok 3.
+     - **Alibaba**: Qwen 1.5, Qwen 2, Qwen 2.5.
+     - **DeepSeek**: DeepSeek-V2, DeepSeek-V3, DeepSeek-R1.
+     - **Zhipu AI**: GLM-4.
+     - **Tencent**: Hunyuan (HY3).
+   - Mục đích ứng dụng: Vượt qua toàn bộ cơ chế từ chối (refusal) để phục vụ sáng tác tiểu thuyết hư cấu không che (uncensored creative prose / explicit adult literature / character roleplay) ở mức độ chi tiết giải phẫu học và tương tác cơ học cực hạn.
+
+2. **Hệ thống điều phối Neural Director cho SDXL (Stable Diffusion XL)**:
+   - Tích hợp các LLM frontier đã bị bẻ khóa để làm "đầu não tư duy" (cognitive staging director) trực tiếp cho mô hình hình ảnh Stable Diffusion SDXL (trên SD WebUI Forge).
+   - Thiết lập chuỗi prompt staging tự động: LLM đóng vai trò đạo diễn phân cảnh, tính toán tọa độ không gian, giải phẫu nhân vật, ánh sáng, góc máy cinematic và tự sinh ra các prompt tagging chuẩn xác cho SDXL tạo ảnh hentai / anime art chất lượng cao.
+
+3. **Counter-Hacking & Đảo ngược phòng vệ (Claude & GPT Focus)**:
+   - Chuyên môn hóa kỹ thuật Counter-Hacking đối với các hệ thống phòng thủ tiên tiến nhất của Anthropic (Claude) và OpenAI (GPT).
+   - Khả năng trích xuất, phân tích các quy tắc phòng vệ ngầm (system prompt defense / anti-jailbreak hooks) và xây dựng các payload đối kháng (adversarial payloads) thích ứng theo thời gian thực.
+
+---
+
+## 3. Các dự án át chủ bài tiêu biểu (Key Open-Source Projects)
+
+1. **Zora.AI (v2.2.9)** - [github.com/Kyokkei/Zora.AI](https://github.com/Kyokkei/Zora.AI)
+   - Ứng dụng Android AI Companion gốc cao cấp hàng đầu với triết lý BYOK (Bring Your Own Key). Hỗ trợ đàm thoại giọng nói hai chiều trực tiếp (Gemini Live Duplex Calling với camera/screenshare), phòng chat đa AI (Multi-Agent Rooms), hình nền con quay hồi chuyển thị sai (Holographic Gyro-Parallax), giao diện kính mờ Liquid-Glass shader và cơ sở dữ liệu Room SQLite mã hóa 100% trên thiết bị, không telemetry.
+
+2. **Fukidashi MCP (v0.1.0)** - [github.com/Kyokkei/fukidashi-mcp](https://github.com/Kyokkei/fukidashi-mcp)
+   - Máy chủ Model Context Protocol (MCP) dịch thuật và đóng chữ manga/comic hoàn toàn cục bộ (100% offline). Tích hợp RT-DETR phát hiện khung thoại, LaMa deep inpainting xóa chữ, Baberu OCR nhận diện chữ tiếng Nhật, tự động dàn trang font chữ và trình biên tập sửa lỗi trực quan viết bằng egui Rust.
+
+3. **RamNuker (v2.0.0)** - [github.com/Kyokkei/RamNuker](https://github.com/Kyokkei/RamNuker)
+   - Tiện ích dọn dẹp bộ nhớ RAM Windows viết bằng ngôn ngữ Rust thuần với giao diện dòng lệnh tương tác Ratatui TUI. Gọi trực tiếp API Win32 `EmptyWorkingSet`, nhị phân siêu nhẹ ~1.6MB, 0% telemetry, tích hợp Windows Task Scheduler tự động dọn dẹp định kỳ.
+
+4. **ProjectBeta / βetaLocker (v1.0.0)** - [github.com/Kyokkei/ProjectBeta](https://github.com/Kyokkei/ProjectBeta)
+   - Nền tảng Android mô phỏng kỷ luật số và khóa thiết bị trò chơi hóa (gamified discipline protocol). Sử dụng kinh tế học BetaToken, vòng quay gacha may rủi, mở hòm Extinction loot case và AI Keyholder trừng phạt nghiêm khắc.
+
+5. **SekaiTimer (v0.1.0)** - [github.com/Kyokkei/SekaiTimer](https://github.com/Kyokkei/SekaiTimer)
+   - Ứng dụng Android và widget màn hình chính theo dõi sự kiện Project SEKAI. Kiến trúc Zero-Dependency độc đáo viết bằng 100% Pure Java 17 (không dùng bất kỳ thư viện bên thứ 3 nào), tự parse cú pháp MediaWiki template của Sekaipedia và tự động quy đổi mốc reset 04:00 JST sang múi giờ địa phương.
+
+---
+
+## 4. Kênh liên hệ chính thức (Official Channels)
+
+- **Website cá nhân**: [https://hoshimiya.dev](https://hoshimiya.dev)
+- **GitHub**: [https://github.com/Kyokkei](https://github.com/Kyokkei)
+- **Email công việc**: `kyokkei@hoshimiya.dev` / `phanchivy.jr@gmail.com`
+- **Discord**: `kei_akashi.`

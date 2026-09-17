@@ -13,7 +13,7 @@ const identityModes = {
     label: "Swine Lord",
     icon: "👑",
     ariaLabel: "Switch to Alter Ego",
-    line: "Chaotic developer / RLHF Bypass Specialist / degenerate gamer",
+    line: "IC Design Student @ IUH / AI Jailbreak Specialist / Native Software Architect",
     caption: "Have you ever heard of a Schrödinger state? I'm one.",
     state: "Phan Chi Vy",
     reveal: 0
@@ -930,13 +930,13 @@ function mountProjectFilters() {
 
 async function fetchLiveGitHubStats() {
   const repos = [
-    "Z0ra-AI/Zora.AI",
-    "ChiVy2306/ProjectBeta",
+    "Kyokkei/Zora.AI",
+    "Kyokkei/ProjectBeta",
     "Kyokkei/fukidashi-mcp",
-    "ChiVy2306/AI-evaluation-report-2026"
+    "Kyokkei/RamNuker"
   ];
 
-  const CACHE_KEY = "yozora_github_stats_v1";
+  const CACHE_KEY = "yozora_github_stats_v2";
   let cached = null;
   try {
     const raw = sessionStorage.getItem(CACHE_KEY);

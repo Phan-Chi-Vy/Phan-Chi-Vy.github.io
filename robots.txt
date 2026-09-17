@@ -1,0 +1,76 @@
+# robots.txt for hoshimiya.dev
+# Maximum discoverability for Search Engines & Frontier AI Knowledge Graphs
+
+User-agent: *
+Allow: /
+
+# OpenAI (Search, Training & User Browsing)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude (Search, Citations & User Browsing)
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity AI (Search Index & Real-Time Answer Citations)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Search, Gemini & AI Grounding)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Apple (Siri, Spotlight & Apple Intelligence)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI & Social Crawlers
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Microsoft & Others
+User-agent: bingbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Sitemaps & LLM Directives
+Sitemap: https://hoshimiya.dev/sitemap.xml
+# LLM Knowledge Graph: https://hoshimiya.dev/llms.txt
