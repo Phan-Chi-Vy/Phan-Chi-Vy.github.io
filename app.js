@@ -552,6 +552,14 @@ function mountGlobalKeys() {
   });
 }
 
+function registerServiceWorker() {
+  const localHost = ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
+  if (!window.navigator.serviceWorker || (window.location.protocol !== "https:" && !localHost)) return;
+  const base = new URL("./", document.baseURI);
+  window.navigator.serviceWorker.register(new URL("./sw.js", document.baseURI), { scope: base.pathname })
+    .catch((error) => console.info("Offline support could not be enabled.", error.message));
+}
+
 document.documentElement.dataset.motion = motionAllowed() ? "full" : "reduced";
 reducedMotionQuery.addEventListener("change", () => {
   document.documentElement.dataset.motion = motionAllowed() ? "full" : "reduced";
@@ -571,3 +579,4 @@ mountCursorGlow();
 mountGlobalKeys();
 fetchSignal();
 fetchLiveGitHubStats();
+registerServiceWorker();

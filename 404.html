@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#171715">
+  <title>Page not found | Yozora</title>
+  <style>
+    :root { color-scheme: dark; font-family: Manrope, "Segoe UI", sans-serif; background: #171715; color: #f2eee5; font-synthesis: none; }
+    * { box-sizing: border-box; }
+    body { min-width: 280px; min-height: 100vh; min-height: 100svh; margin: 0; display: grid; place-items: center; overflow: hidden; padding: clamp(18px, 5vw, 56px); background: radial-gradient(ellipse at 50% 0%, #35302a 0, #171715 65%); }
+    main { width: min(100%, 690px); padding: clamp(24px, 6vw, 58px); border: 1px solid #ffffff1c; border-radius: 28px; background: #242421d9; box-shadow: 0 28px 90px #0007, inset 0 1px #ffffff13; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 clamp(26px, 7vw, 56px); color: #b6b1a7; font: 11px/1.4 "Courier New", monospace; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { width: 8px; height: 8px; border-radius: 50%; background: #e97655; content: ""; box-shadow: 0 0 0 4px #e9765520; }
+    .code { margin: 0 0 8px; color: #e97655; font: 600 clamp(48px, 13vw, 92px)/.9 "Segoe UI", sans-serif; letter-spacing: -.08em; }
+    h1 { max-width: 9ch; margin: 0; font-size: clamp(32px, 7vw, 58px); font-weight: 500; letter-spacing: -.055em; line-height: 1.02; }
+    p { max-width: 46ch; margin: 18px 0 30px; color: #c7c2b8; font-size: clamp(14px, 2.6vw, 16px); line-height: 1.65; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    a { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 18px; border: 1px solid #ffffff24; border-radius: 999px; color: #f2eee5; text-decoration: none; font-size: 14px; font-weight: 650; transition: transform .18s ease, background .18s ease; }
+    a.primary { border-color: #e97655; background: #e97655; color: #171715; }
+    a:hover { transform: translateY(-2px); background: #ffffff12; }
+    a.primary:hover { background: #f18b6b; }
+    a:focus-visible { outline: 3px solid #f2eee5; outline-offset: 3px; }
+    footer { margin-top: clamp(34px, 7vw, 58px); color: #8f8b82; font: 10px/1.5 "Courier New", monospace; letter-spacing: .1em; text-transform: uppercase; }
+    @media (max-height: 480px) { body { padding: 12px; } main { padding: 20px 24px; } .eyebrow { margin-bottom: 18px; } p { margin: 12px 0 18px; } footer { margin-top: 20px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Yozora / page not found</p>
+    <p class="code" aria-hidden="true">404</p>
+    <h1>This page isn’t here.</h1>
+    <p>The address may have changed, or the page may never have existed. You can head back to the main interface or read the profile.</p>
+    <nav aria-label="Page recovery">
+      <a class="primary" href="/">Return home <span aria-hidden="true">↗</span></a>
+      <a href="/about.html">Open profile</a>
+    </nav>
+    <footer>Hoshimiya.dev · Saigon, Vietnam</footer>
+  </main>
+</body>
+</html>
