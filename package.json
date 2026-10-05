@@ -5,7 +5,8 @@
   "description": "Yozora's personal identity and portfolio site.",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check app.js"
+    "check": "node --check server.js && node --check app.js && node --check scripts/build-profile.mjs",
+    "build:profile": "node scripts/build-profile.mjs"
   },
   "engines": {
     "node": ">=18"
