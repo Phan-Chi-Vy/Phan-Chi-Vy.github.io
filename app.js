@@ -502,8 +502,8 @@ function mountContactDialog() {
 }
 
 async function fetchLiveGitHubStats() {
-  const repos = ["Kyokkei/Zora.AI", "Kyokkei/ProjectBeta", "Kyokkei/fukidashi-mcp", "Kyokkei/RamNuker"];
-  const key = "yozora_github_stats_v2";
+  const repos = ["Kyokkei/Zora.AI", "Yuukitake/SekaiDesk", "Kyokkei/fukidashi-mcp", "Yuukitake/the-battle-cat-companion"];
+  const key = "yozora_github_stats_v3";
   const apply = (data) => {
     if (!data || typeof data !== "object") return;
     Object.entries(data).forEach(([repo, stats]) => {

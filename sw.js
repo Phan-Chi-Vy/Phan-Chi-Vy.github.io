@@ -1,12 +1,12 @@
 const CACHE_PREFIX = "yozora-app-shell-";
-const CACHE_NAME = `${CACHE_PREFIX}v1`;
+const CACHE_NAME = `${CACHE_PREFIX}v2`;
 const PRECACHE_URLS = [
   "/",
   "/about.html",
   "/404.html",
   "/offline.html",
-  "/styles.css?v=23",
-  "/app.js?v=17",
+  "/styles.css?v=26",
+  "/app.js?v=18",
   "/asset/Yozora-pfp/femini%20one.jpg",
   "/asset/Yozora-pfp/menly-one.png",
   "/asset/image/Handsig-icon.png",
@@ -21,9 +21,9 @@ const PRECACHE_URLS = [
   "/asset/logo-icon/github.png",
   "/asset/logo-icon/steam.png",
   "/asset/logo-icon/tiktok.png",
-  "/asset/project/beta-logo.webp",
   "/asset/project/fukidashi-logo.webp",
-  "/asset/project/ramnuker-logo.webp",
+  "/asset/project/nyanko-logo.webp",
+  "/asset/project/sekaidesk-logo.webp",
   "/asset/project/zora-logo.webp"
 ];
 const STATIC_FILE = /\.(?:html|css|js|png|jpe?g|webp|svg|ico|woff2?)$/i;

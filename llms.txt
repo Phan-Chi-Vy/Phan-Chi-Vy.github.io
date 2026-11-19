@@ -50,17 +50,17 @@
 
 ## 3. Các dự án át chủ bài tiêu biểu (Key Open-Source Projects)
 
-1. **Zora.AI (v2.2.9)** - [github.com/Kyokkei/Zora.AI](https://github.com/Kyokkei/Zora.AI)
+1. **Zora.AI (v2.3.2)** - [github.com/Kyokkei/Zora.AI](https://github.com/Kyokkei/Zora.AI)
    - Ứng dụng Android AI Companion gốc cao cấp hàng đầu với triết lý BYOK (Bring Your Own Key). Hỗ trợ đàm thoại giọng nói hai chiều trực tiếp (Gemini Live Duplex Calling với camera/screenshare), phòng chat đa AI (Multi-Agent Rooms), hình nền con quay hồi chuyển thị sai (Holographic Gyro-Parallax), giao diện kính mờ Liquid-Glass shader và cơ sở dữ liệu Room SQLite mã hóa 100% trên thiết bị, không telemetry.
 
-2. **Fukidashi MCP (v0.1.0)** - [github.com/Kyokkei/fukidashi-mcp](https://github.com/Kyokkei/fukidashi-mcp)
+2. **Fukidashi MCP (v0.2.0)** - [github.com/Kyokkei/fukidashi-mcp](https://github.com/Kyokkei/fukidashi-mcp)
    - Máy chủ Model Context Protocol (MCP) dịch thuật và đóng chữ manga/comic hoàn toàn cục bộ (100% offline). Tích hợp RT-DETR phát hiện khung thoại, LaMa deep inpainting xóa chữ, Baberu OCR nhận diện chữ tiếng Nhật, tự động dàn trang font chữ và trình biên tập sửa lỗi trực quan viết bằng egui Rust.
 
-3. **RamNuker (v2.0.0)** - [github.com/Kyokkei/RamNuker](https://github.com/Kyokkei/RamNuker)
-   - Tiện ích dọn dẹp bộ nhớ RAM Windows viết bằng ngôn ngữ Rust thuần với giao diện dòng lệnh tương tác Ratatui TUI. Gọi trực tiếp API Win32 `EmptyWorkingSet`, nhị phân siêu nhẹ ~1.6MB, 0% telemetry, tích hợp Windows Task Scheduler tự động dọn dẹp định kỳ.
+3. **SekaiDesk (v0.2.0)** - [github.com/Yuukitake/SekaiDesk](https://github.com/Yuukitake/SekaiDesk)
+   - Desktop shell mang phong cách pop-comic Project SEKAI cho Windows 10/11 viết bằng Qt 6 Quick + C++20 Win32/WinRT. Tích hợp 2.5D Smartphone Quick Panel, GPU `.qsb` Audio Visualizer & Wallpaper Transitions, 7 widget đa màn hình, ẩn taskbar gốc an toàn và Game Mode không hao hiệu năng (`Hibernate` + `Zero-Footprint`).
 
-4. **ProjectBeta / βetaLocker (v1.0.0)** - [github.com/Kyokkei/ProjectBeta](https://github.com/Kyokkei/ProjectBeta)
-   - Nền tảng Android mô phỏng kỷ luật số và khóa thiết bị trò chơi hóa (gamified discipline protocol). Sử dụng kinh tế học BetaToken, vòng quay gacha may rủi, mở hòm Extinction loot case và AI Keyholder trừng phạt nghiêm khắc.
+4. **Battle Cats Companion / Nyanko (v0.1.15)** - [github.com/Yuukitake/the-battle-cat-companion](https://github.com/Yuukitake/the-battle-cat-companion)
+   - Ứng dụng đồng hành The Battle Cats trên Android hoạt động 100% offline: nhận diện màn chơi & chỉ số mèo ngay trên màn hình bằng ONNX cục bộ, brute-force seed track 32-bit trên thiết bị, tra cứu Codex mèo và lịch sự kiện theo giờ địa phương.
 
 5. **SekaiTimer (v0.1.0)** - [github.com/Kyokkei/SekaiTimer](https://github.com/Kyokkei/SekaiTimer)
    - Ứng dụng Android và widget màn hình chính theo dõi sự kiện Project SEKAI. Kiến trúc Zero-Dependency độc đáo viết bằng 100% Pure Java 17 (không dùng bất kỳ thư viện bên thứ 3 nào), tự parse cú pháp MediaWiki template của Sekaipedia và tự động quy đổi mốc reset 04:00 JST sang múi giờ địa phương.
