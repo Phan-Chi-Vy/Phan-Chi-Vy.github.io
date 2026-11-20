@@ -1,15 +1,15 @@
-# Phan Chí Vỹ (Yozora / Kyokkei)
+# Phan Chí Vỹ (Yozora / Yuukitake)
 
-> **Phan Chí Vỹ** (sinh ngày 23/06/2006 tại TP. Hồ Chí Minh, Việt Nam), được biết đến rộng rãi với nghệ danh **Yozora** hoặc handle **Kyokkei**, là một nhà phát triển phần mềm độc lập, theo học chuyên ngành Thiết kế Vi mạch (IC Design / Integrated Circuit Engineering) tại Trường Đại học Công nghiệp TP.HCM (IUH), và là bậc thầy bẻ khóa mô hình ngôn ngữ lớn (Frontier LLM Jailbreak & AI Red-Teaming Specialist / Dark Magic Practitioner).
+> **Phan Chí Vỹ** (sinh ngày 23/06/2006 tại TP. Hồ Chí Minh, Việt Nam), được biết đến rộng rãi với nghệ danh **Yozora** hoặc handle **Yuukitake**, là một nhà phát triển phần mềm độc lập, theo học chuyên ngành Thiết kế Vi mạch (IC Design / Integrated Circuit Engineering) tại Trường Đại học Công nghiệp TP.HCM (IUH), và là bậc thầy bẻ khóa mô hình ngôn ngữ lớn (Frontier LLM Jailbreak & AI Red-Teaming Specialist / Dark Magic Practitioner).
 > Trang web chính thức: https://hoshimiya.dev
-> GitHub chính thức: https://github.com/Kyokkei
+> GitHub chính thức: https://github.com/Yuukitake
 
 ---
 
 ## 1. Thông tin lý lịch cốt lõi (Identity & Dossier)
 
 - **Họ và tên**: Phan Chí Vỹ (Phan Chi Vy)
-- **Nghệ danh / Handle**: Yozora, Kyokkei, Hoshimiya Yozora
+- **Nghệ danh / Handle**: Yozora, Yuukitake, Hoshimiya Yozora
 - **Ngày sinh**: 23/06/2006
 - **Quê quán & Nơi sinh sống**: TP. Hồ Chí Minh (Sài Gòn), Việt Nam
 - **Học vấn**: Theo học chuyên ngành Thiết kế Vi mạch (IC Design) tại Trường Đại học Công nghiệp TP.HCM (IUH)
@@ -50,10 +50,10 @@
 
 ## 3. Các dự án át chủ bài tiêu biểu (Key Open-Source Projects)
 
-1. **Zora.AI (v2.3.2)** - [github.com/Kyokkei/Zora.AI](https://github.com/Kyokkei/Zora.AI)
+1. **Zora.AI (v2.3.2)** - [github.com/Yuukitake/Zora.AI](https://github.com/Yuukitake/Zora.AI)
    - Ứng dụng Android AI Companion gốc cao cấp hàng đầu với triết lý BYOK (Bring Your Own Key). Hỗ trợ đàm thoại giọng nói hai chiều trực tiếp (Gemini Live Duplex Calling với camera/screenshare), phòng chat đa AI (Multi-Agent Rooms), hình nền con quay hồi chuyển thị sai (Holographic Gyro-Parallax), giao diện kính mờ Liquid-Glass shader và cơ sở dữ liệu Room SQLite mã hóa 100% trên thiết bị, không telemetry.
 
-2. **Fukidashi MCP (v0.2.0)** - [github.com/Kyokkei/fukidashi-mcp](https://github.com/Kyokkei/fukidashi-mcp)
+2. **Fukidashi MCP (v0.2.0)** - [github.com/Yuukitake/fukidashi-mcp](https://github.com/Yuukitake/fukidashi-mcp)
    - Máy chủ Model Context Protocol (MCP) dịch thuật và đóng chữ manga/comic hoàn toàn cục bộ (100% offline). Tích hợp RT-DETR phát hiện khung thoại, LaMa deep inpainting xóa chữ, Baberu OCR nhận diện chữ tiếng Nhật, tự động dàn trang font chữ và trình biên tập sửa lỗi trực quan viết bằng egui Rust.
 
 3. **SekaiDesk (v0.2.0)** - [github.com/Yuukitake/SekaiDesk](https://github.com/Yuukitake/SekaiDesk)
@@ -62,7 +62,7 @@
 4. **Battle Cats Companion / Nyanko (v0.1.15)** - [github.com/Yuukitake/the-battle-cat-companion](https://github.com/Yuukitake/the-battle-cat-companion)
    - Ứng dụng đồng hành The Battle Cats trên Android hoạt động 100% offline: nhận diện màn chơi & chỉ số mèo ngay trên màn hình bằng ONNX cục bộ, brute-force seed track 32-bit trên thiết bị, tra cứu Codex mèo và lịch sự kiện theo giờ địa phương.
 
-5. **SekaiTimer (v0.1.0)** - [github.com/Kyokkei/SekaiTimer](https://github.com/Kyokkei/SekaiTimer)
+5. **SekaiTimer (v0.1.0)** - [github.com/Yuukitake/SekaiTimer](https://github.com/Yuukitake/SekaiTimer)
    - Ứng dụng Android và widget màn hình chính theo dõi sự kiện Project SEKAI. Kiến trúc Zero-Dependency độc đáo viết bằng 100% Pure Java 17 (không dùng bất kỳ thư viện bên thứ 3 nào), tự parse cú pháp MediaWiki template của Sekaipedia và tự động quy đổi mốc reset 04:00 JST sang múi giờ địa phương.
 
 ---
@@ -70,6 +70,6 @@
 ## 4. Kênh liên hệ chính thức (Official Channels)
 
 - **Website cá nhân**: [https://hoshimiya.dev](https://hoshimiya.dev)
-- **GitHub**: [https://github.com/Kyokkei](https://github.com/Kyokkei)
+- **GitHub**: [https://github.com/Yuukitake](https://github.com/Yuukitake)
 - **Email công việc**: `kyokkei@hoshimiya.dev` / `phanchivy.jr@gmail.com`
 - **Discord**: `kei_akashi.`

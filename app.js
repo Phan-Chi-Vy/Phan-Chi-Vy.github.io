@@ -228,27 +228,13 @@ function mountIdentityTabs() {
   show("about");
 }
 
-function mountSkillPager() {
-  const groups = $$('[data-skill-group]');
-  const counter = $('[data-skill-current]');
-  let current = 0;
-  const show = (index) => {
-    current = (index + groups.length) % groups.length;
-    groups.forEach((group, groupIndex) => { group.hidden = groupIndex !== current; });
-    if (counter) counter.textContent = String(current + 1).padStart(2, "0");
-  };
-  $('[data-skill-prev]')?.addEventListener("click", () => show(current - 1));
-  $('[data-skill-next]')?.addEventListener("click", () => show(current + 1));
-  show(0);
-}
-
 function mountIdentityMode() {
   const button = $("[data-mode-switch]");
   const card = $("[data-lenticular]");
   if (!button || !card) return;
   const modes = {
-    me: { label: "Swine Lord", icon: "◉", ariaLabel: "Switch to Alter Ego", line: "IC Design Student @ IUH / AI Jailbreak Specialist / Native Software Architect", caption: "Have you ever heard of a Schrödinger state? I'm one.", state: "Phan Chi Vy", reveal: 0 },
-    alter: { label: "Swine - Alter ego", icon: "◌", ariaLabel: "Switch to Me", line: "Same mind / softer render / still dangerously curious", caption: "Observation changed the render, not the person.", state: "Hoshimiya Yozora", reveal: 100 }
+    me: { label: "Swine Lord", icon: "◉", ariaLabel: "Switch to Alter Ego", aka: "aka Yuukitake", line: "IC Design Student @ IUH / AI Jailbreak Specialist / Native Software Architect", caption: "Have you ever heard of a Schrödinger state? I'm one.", state: "Phan Chi Vy", reveal: 0 },
+    alter: { label: "Swine - Alter ego", icon: "◌", ariaLabel: "Switch to Me", aka: "aka Yozora", line: "Same mind / softer render / still dangerously curious", caption: "Observation changed the render, not the person.", state: "Hoshimiya Yozora", reveal: 100 }
   };
   let mode = "me";
   try { mode = localStorage.getItem("yozora-mode") === "alter" ? "alter" : "me"; }
@@ -262,6 +248,7 @@ function mountIdentityMode() {
     button.setAttribute("aria-label", value.ariaLabel);
     $(".mode-icon", button).textContent = value.icon;
     $(".mode-label", button).textContent = value.label;
+    $$("[data-aka-name]").forEach((element) => { element.textContent = value.aka; });
     $$("[data-identity-line]").forEach((element) => { element.textContent = value.line; });
     $$("[data-profile-caption]").forEach((element) => { element.textContent = value.caption; });
     $$("[data-state-pill]").forEach((element) => { element.textContent = value.state; });
@@ -502,8 +489,8 @@ function mountContactDialog() {
 }
 
 async function fetchLiveGitHubStats() {
-  const repos = ["Kyokkei/Zora.AI", "Yuukitake/SekaiDesk", "Kyokkei/fukidashi-mcp", "Yuukitake/the-battle-cat-companion"];
-  const key = "yozora_github_stats_v3";
+  const repos = ["Yuukitake/Zora.AI", "Yuukitake/SekaiDesk", "Yuukitake/fukidashi-mcp", "Yuukitake/the-battle-cat-companion"];
+  const key = "yozora_github_stats_v4";
   const apply = (data) => {
     if (!data || typeof data !== "object") return;
     Object.entries(data).forEach(([repo, stats]) => {
@@ -570,7 +557,6 @@ mountAgeCounters();
 mountNavigation();
 mountProjectPager();
 mountIdentityTabs();
-mountSkillPager();
 mountIdentityMode();
 mountLenticular();
 mountContactDialog();

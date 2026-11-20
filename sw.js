@@ -1,12 +1,18 @@
 const CACHE_PREFIX = "yozora-app-shell-";
-const CACHE_NAME = `${CACHE_PREFIX}v2`;
+const CACHE_NAME = `${CACHE_PREFIX}v3`;
 const PRECACHE_URLS = [
   "/",
   "/about.html",
   "/404.html",
   "/offline.html",
-  "/styles.css?v=26",
-  "/app.js?v=18",
+  "/styles.css?v=27",
+  "/app.js?v=19",
+  "/asset/fonts/AnthropicSans-Text-Regular.woff",
+  "/asset/fonts/AnthropicSans-Text-Medium.woff",
+  "/asset/fonts/AnthropicSans-Text-Semibold.woff",
+  "/asset/fonts/AnthropicSans-Text-Bold.woff",
+  "/asset/fonts/AnthropicSans-Display-Regular.woff",
+  "/asset/fonts/AnthropicSans-Display-Medium.woff",
   "/asset/Yozora-pfp/femini%20one.jpg",
   "/asset/Yozora-pfp/menly-one.png",
   "/asset/image/Handsig-icon.png",

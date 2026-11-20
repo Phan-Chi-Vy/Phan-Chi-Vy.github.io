@@ -7,8 +7,8 @@ const sourcePath = resolve(root, "index.html");
 const outputPath = resolve(root, "about.html");
 const rootUrl = "https://hoshimiya.dev/";
 const profileUrl = `${rootUrl}about.html`;
-const profileTitle = "About Phan Chi Vy (Phan Chí Vỹ) | Yozora / Kyokkei";
-const profileDescription = "About Phan Chi Vy (Phan Chí Vỹ), known as Yozora or Kyokkei: an IC Design student at IUH and independent software developer in Ho Chi Minh City, Vietnam.";
+const profileTitle = "About Phan Chi Vy (Phan Chí Vỹ) | Yozora / Yuukitake";
+const profileDescription = "About Phan Chi Vy (Phan Chí Vỹ), known as Yozora or Yuukitake: an IC Design student at IUH and independent software developer in Ho Chi Minh City, Vietnam.";
 
 const replaceOnce = (source, search, replacement, label) => {
   if (!source.includes(search)) throw new Error(`Could not find ${label} in index.html`);
@@ -17,15 +17,15 @@ const replaceOnce = (source, search, replacement, label) => {
 
 let html = await readFile(sourcePath, "utf8");
 html = replaceOnce(html, '<meta name="viewport" content="width=device-width, initial-scale=1">', '<meta name="viewport" content="width=device-width, initial-scale=1">\n  <base href="/">', "viewport metadata");
-html = replaceOnce(html, '<meta name="description" content="Phan Chi Vy (Phan Chí Vỹ), known as Yozora or Kyokkei, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta name="description" content="${profileDescription}">`, "description metadata");
-html = replaceOnce(html, "<title>Phan Chi Vy (Phan Chí Vỹ) | Yozora / Kyokkei</title>", `<title>${profileTitle}</title>`, "title");
+html = replaceOnce(html, '<meta name="description" content="Phan Chi Vy (Phan Chí Vỹ), known as Yozora or Yuukitake, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta name="description" content="${profileDescription}">`, "description metadata");
+html = replaceOnce(html, "<title>Phan Chi Vy (Phan Chí Vỹ) | Yozora / Yuukitake</title>", `<title>${profileTitle}</title>`, "title");
 html = replaceOnce(html, '<link rel="canonical" href="https://hoshimiya.dev/">', `<link rel="canonical" href="${profileUrl}">`, "canonical URL");
 html = replaceOnce(html, '<meta property="og:url" content="https://hoshimiya.dev/">', `<meta property="og:url" content="${profileUrl}">`, "Open Graph URL");
-html = replaceOnce(html, '<meta property="og:title" content="Phan Chi Vy (Phan Chí Vỹ) | Yozora / Kyokkei">', `<meta property="og:title" content="${profileTitle}">`, "Open Graph title");
-html = replaceOnce(html, '<meta property="og:description" content="Who is Phan Chi Vy? Phan Chí Vỹ, known as Yozora or Kyokkei, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta property="og:description" content="${profileDescription}">`, "Open Graph description");
+html = replaceOnce(html, '<meta property="og:title" content="Phan Chi Vy (Phan Chí Vỹ) | Yozora / Yuukitake">', `<meta property="og:title" content="${profileTitle}">`, "Open Graph title");
+html = replaceOnce(html, '<meta property="og:description" content="Who is Phan Chi Vy? Phan Chí Vỹ, known as Yozora or Yuukitake, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta property="og:description" content="${profileDescription}">`, "Open Graph description");
 html = replaceOnce(html, '<meta name="twitter:url" content="https://hoshimiya.dev/">', `<meta name="twitter:url" content="${profileUrl}">`, "Twitter URL");
-html = replaceOnce(html, '<meta name="twitter:title" content="Phan Chi Vy (Phan Chí Vỹ) | Yozora / Kyokkei">', `<meta name="twitter:title" content="${profileTitle}">`, "Twitter title");
-html = replaceOnce(html, '<meta name="twitter:description" content="Who is Phan Chi Vy? Phan Chí Vỹ, known as Yozora or Kyokkei, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta name="twitter:description" content="${profileDescription}">`, "Twitter description");
+html = replaceOnce(html, '<meta name="twitter:title" content="Phan Chi Vy (Phan Chí Vỹ) | Yozora / Yuukitake">', `<meta name="twitter:title" content="${profileTitle}">`, "Twitter title");
+html = replaceOnce(html, '<meta name="twitter:description" content="Who is Phan Chi Vy? Phan Chí Vỹ, known as Yozora or Yuukitake, is an IC Design student at IUH and an independent software developer in Ho Chi Minh City, Vietnam.">', `<meta name="twitter:description" content="${profileDescription}">`, "Twitter description");
 
 const schemaBlock = html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
 if (!schemaBlock) throw new Error("Could not find JSON-LD in index.html");
